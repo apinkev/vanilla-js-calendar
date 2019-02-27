@@ -1,0 +1,153 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+.page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.calendar {
+    width: 427px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px 4px #0000001c;
+    padding: 50px;
+    height: 80vh;
+    position: relative;
+}
+.days-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+.next, .previous {
+    flex: 25%;
+    justify-content: center;
+    display: inherit;
+    height: 100%;
+    align-items: center;
+}
+img {
+    width: 40px;
+    height: 40px;
+}
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+    width: 35px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+button {
+    width: 100px;
+    border: none;
+    height: 20px;
+    outline: none;
+    box-shadow: 0 0 2px 0px #0000001c;
+    background-color: #acacac30;
+    font-size: 13px;
+    cursor: pointer;
+}
+::placeholder {
+    font-size: 14px;
+}
+.top-img {
+    width: 383px;
+    height: 430px;
+    background-size: cover;
+}
+.week {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    background-color: #acacac30;
+    border-radius: 45px;
+    margin-top: 0;
+}
+span {
+    font-size: 25px;
+    padding: 13px;
+}
+.year {
+    font-size: 20px;
+    padding: 5px;
+    padding-bottom: 0;
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
+}
+.pop-up {
+    position: absolute;
+    top: 47px;
+    left: 53px;
+    width: 170px;
+    height: 200px;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 0 20px 0px #0000001c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+textarea {
+    width: 85%;
+    height: 75%;
+    border: none;
+    outline: none;
+    margin: 7px;
+    background: transparent;
+    resize: none;
+    font-size: 14px;
+}
+.active-day {
+    background-color: #acacac30;
+}
+.disabled-days {
+    background-color: #acacac09;
+    color: #acacac5c;
+}
+.calendar-img-0 {
+    background-image: url(../assets/january.png)
+}
+.calendar-img-1 {
+    background-image: url(../assets/february.png)
+}
+.calendar-img-2 {
+    background-image: url(../assets/march.png)
+}
+.calendar-img-3 {
+    background-image: url(../assets/april.png)
+}
+.calendar-img-4 {
+    background-image: url(../assets/may.png)
+}
+.calendar-img-5 {
+    background-image: url(../assets/june.png)
+}
+.calendar-img-6 {
+    background-image: url(../assets/july.png)
+}
+.calendar-img-7 {
+    background-image: url(../assets/august.png)
+}
+.calendar-img-8 {
+    background-image: url(../assets/september.png)
+}
+.calendar-img-9 {
+    background-image: url(../assets/october.png)
+}
+.calendar-img-10 {
+    background-image: url(../assets/november.png)
+}
+.calendar-img-11 {
+    background-image: url(../assets/december.png)
+}
