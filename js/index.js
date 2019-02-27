@@ -34,7 +34,7 @@ let calendar = {
             "October",
             "November",
             "December"
-        ] [month]
+        ][month]
     },
 
     week: [
@@ -49,10 +49,10 @@ let calendar = {
 
     createDaysOfTheWeek() {
         this.insertImg(),
-        month = document.createElement('span'),
-        month.innerHTML = this.setMonth(this.date.getMonth())
+            month = document.createElement('span'),
+            month.innerHTML = this.setMonth(this.date.getMonth())
         this.calendar.appendChild(month),
-        weekUl = document.createElement('ul')
+            weekUl = document.createElement('ul')
         weekUl.className = 'week'
         this.calendar.appendChild(weekUl)
         this.week.map(weekDay => {
@@ -61,9 +61,9 @@ let calendar = {
             weekUl.appendChild(day)
         })
         firstDay = this.date.setDate(1),
-        ul = document.createElement('ul'),
-        ul.className = 'days-container',
-        this.calendar.appendChild(ul)
+            ul = document.createElement('ul'),
+            ul.className = 'days-container',
+            this.calendar.appendChild(ul)
         year = document.createElement('span')
         year.className = "year"
         year.innerHTML = this.date.getFullYear()
@@ -74,14 +74,14 @@ let calendar = {
             blankDays.className = "disabled"
             ul.appendChild(blankDays)
         }
-        for (let i = 1; i <= this.daysInMonth(this.date.getFullYear(),this.date.getMonth() + 1); i++) {
+        for (let i = 1; i <= this.daysInMonth(this.date.getFullYear(), this.date.getMonth() + 1); i++) {
             if ([i] == this.today.getDate() && this.date.getMonth() === this.today.getMonth() && this.date.getFullYear() === this.today.getFullYear()) {
-            let activeDay = document.createElement('li')
-            activeDay.className = "active-day days"
-            activeDay.innerHTML = [i]
-            ul.appendChild(activeDay)
+                let activeDay = document.createElement('li')
+                activeDay.className = "active-day days"
+                activeDay.innerHTML = [i]
+                ul.appendChild(activeDay)
             } else if (([i] < this.today.getDate() && this.date.getMonth() === this.today.getMonth() && this.date.getFullYear() === this.today.getFullYear()) ||
-            (this.date.getMonth() < this.today.getMonth() || this.date.getFullYear() < this.today.getFullYear())) {
+                (this.date.getMonth() < this.today.getMonth() && this.date.getFullYear() <= this.today.getFullYear() ) || this.date.getFullYear() < this.today.getFullYear()) {
                 let disabledDays = document.createElement('li')
                 disabledDays.className = "disabled-days days"
                 disabledDays.innerHTML = [i]
@@ -91,36 +91,36 @@ let calendar = {
                 days.className = "future-days days"
                 days.innerHTML = [i]
                 ul.appendChild(days)
-            } 
+            }
         }
         this.popup()
     },
     addControls() {
         var b = this
-        this.next.addEventListener("click", function() {
+        this.next.addEventListener("click", function () {
             b.date.setMonth(b.date.getMonth() + 1)
             b.calendar.innerHTML = ''
             b.createDaysOfTheWeek()
         }),
-        this.previous.addEventListener("click", function() {
-            b.date.setMonth(b.date.getMonth() - 1)
-            b.calendar.innerHTML = ''
-            b.createDaysOfTheWeek()
-        })
+            this.previous.addEventListener("click", function () {
+                b.date.setMonth(b.date.getMonth() - 1)
+                b.calendar.innerHTML = ''
+                b.createDaysOfTheWeek()
+            })
     },
     popup() {
         this.calendar.addEventListener("click", (e) => {
             if (e.target.className.includes('days') &&
                 e.target !== document.querySelector('.pop-up')) {
-            this.smallpopUp.className = "pop-up"
-            e.target.appendChild(this.smallpopUp)
-            this.smallpopUp.appendChild(this.note)
-            this.note.setAttribute("Placeholder", "Put your notes in here")
-            this.smallpopUp.appendChild(this.button)
-            this.button.innerHTML = "Save"
-            this.notesForSpecificDay = this.notes.filter((note) => note.selectedDay === e.target.firstChild.textContent)
-            this.note.value = this.notesForSpecificDay[0] ? this.notesForSpecificDay.slice(-1)[0].inputText : ''
-            } else if(e.target !== this.note) {
+                this.smallpopUp.className = "pop-up"
+                e.target.appendChild(this.smallpopUp)
+                this.smallpopUp.appendChild(this.note)
+                this.note.setAttribute("Placeholder", "Put your notes in here")
+                this.smallpopUp.appendChild(this.button)
+                this.button.innerHTML = "Save"
+                this.notesForSpecificDay = this.notes.filter((note) => note.selectedDay === e.target.firstChild.textContent)
+                this.note.value = this.notesForSpecificDay[0] ? this.notesForSpecificDay.slice(-1)[0].inputText : ''
+            } else if (e.target !== this.note) {
                 this.smallpopUp.parentElement.removeChild(this.smallpopUp)
             } else {
                 ""
@@ -131,7 +131,7 @@ let calendar = {
     save(e) {
         this.notes.push({
             selectedDay: e.target.parentElement.parentElement.firstChild.textContent,
-            inputText: this.note.value 
+            inputText: this.note.value
         })
     }
 }
