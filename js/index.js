@@ -81,7 +81,7 @@ let calendar = {
             activeDay.innerHTML = [i]
             ul.appendChild(activeDay)
             } else if (([i] < this.today.getDate() && this.date.getMonth() === this.today.getMonth() && this.date.getFullYear() === this.today.getFullYear()) ||
-            (this.date.getMonth() < this.today.getMonth() && this.date.getFullYear() <= this.today.getFullYear())) {
+            (this.date.getMonth() < this.today.getMonth() || this.date.getFullYear() < this.today.getFullYear())) {
                 let disabledDays = document.createElement('li')
                 disabledDays.className = "disabled-days days"
                 disabledDays.innerHTML = [i]
